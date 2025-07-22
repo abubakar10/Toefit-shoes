@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../Context/CartProvider.js';
 import { useAuth } from '../../Context/Auth.js';
 import Layout from '../Layout/Layout.js';
-import axios from 'axios';
 import toast from 'react-hot-toast';
 import './Checkout.css';
 
@@ -140,7 +139,7 @@ const Checkout = () => {
       };
 
       // In a real app, you would send this to your backend
-      console.log('Order data:', orderData);
+      // console.log('Order data:', orderData);
       
       // Clear cart
       setCart([]);

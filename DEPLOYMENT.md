@@ -32,8 +32,14 @@ npm install
 
 ### 2. Production Build
 ```bash
-# Build for production
+# Update browserslist first
+npm run update-browserslist
+
+# Build for production (with warnings disabled)
 npm run build
+
+# Alternative: Use deployment script
+npm run build:deploy
 
 # Test build locally (optional)
 npx serve -s build

@@ -3,7 +3,6 @@ import Layout from "./../Layout/Layout.js";
 import { useCart } from "../../Context/CartProvider.js";
 import { useAuth } from "../../Context/Auth.js";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import toast from "react-hot-toast";
 import "./Cart.css";
 
