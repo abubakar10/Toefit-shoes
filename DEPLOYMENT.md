@@ -17,17 +17,21 @@ The deployment was failing due to Redux peer dependency conflicts:
 
 ## 📦 Deployment Steps
 
-### 1. Clean Installation
+### 1. Clean Installation & Fix Deprecated Packages
 ```bash
 # Navigate to shoes directory
 cd shoes
 
+# Fix deprecated packages (recommended)
+npm run fix-deprecated
+
+# OR manual approach:
 # Clear npm cache and node_modules
 rm -rf node_modules package-lock.json
 npm cache clean --force
 
-# Fresh installation
-npm install
+# Fresh installation with legacy peer deps
+npm install --legacy-peer-deps
 ```
 
 ### 2. Production Build
@@ -93,6 +97,11 @@ After deployment, verify:
 
 ## 🐛 Troubleshooting
 
+### If you get deprecated package warnings:
+1. Run `npm run fix-deprecated` to automatically fix them
+2. Or manually: `npm install --legacy-peer-deps`
+3. Update specific packages: `npm update package-name`
+
 ### If you still get dependency errors:
 1. Delete `node_modules` and `package-lock.json`
 2. Run `npm install --legacy-peer-deps`
@@ -102,6 +111,7 @@ After deployment, verify:
 1. Check environment variables are set
 2. Ensure `CI=false` to treat warnings as non-fatal
 3. Run `npm run build` locally first to test
+4. Try `npm run fix-deprecated` for package issues
 
 ## 📱 Platform-Specific Notes
 
