@@ -1,0 +1,12 @@
+
+.section4 {
+  padding: 100px 20px;
+}
+.section4 h1 {
+  text-align: center;
+  padding-bottom: 80px;
+}
+.section4 .nav {
+  display: flex;
+  justify-content: center;
+}

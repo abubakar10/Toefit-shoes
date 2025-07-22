@@ -1,0 +1,218 @@
+/* Banner Section Styles */
+.bannerimg {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.bannerimg a {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.bannerimg a img {
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.bannerimg a:hover img {
+  transform: scale(1.02);
+}
+
+/* Banner Overlay for better text readability */
+.bannerimg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Banner Content Overlay (if needed for text) */
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.banner-content h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content .cta-button {
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 2px solid white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.banner-content .cta-button:hover {
+  background: white;
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .bannerimg a img {
+    height: 50vh;
+    min-height: 350px;
+    max-height: 500px;
+  }
+  
+  .banner-content {
+    padding: 1.5rem;
+  }
+  
+  .banner-content .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerimg a img {
+    height: 45vh;
+    min-height: 300px;
+    max-height: 400px;
+  }
+  
+  .banner-content {
+    padding: 1rem;
+  }
+  
+  .banner-content .cta-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bannerimg a img {
+    height: 40vh;
+    min-height: 250px;
+    max-height: 350px;
+  }
+  
+  .banner-content {
+    padding: 0.5rem;
+  }
+  
+  .banner-content h1 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .banner-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .banner-content .cta-button {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .bannerimg a img {
+    height: 35vh;
+    min-height: 220px;
+    max-height: 300px;
+  }
+}
+
+/* Loading state */
+.bannerimg a img {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.bannerimg a img[src] {
+  background: none;
+  animation: none;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .bannerimg a img,
+  .banner-content .cta-button {
+    transition: none;
+  }
+  
+  .bannerimg a:hover img {
+    transform: none;
+  }
+  
+  .bannerimg a img {
+    animation: none;
+  }
+}
+
+/* Focus styles */
+.bannerimg a:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 3px;
+}
+
+.banner-content .cta-button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .bannerimg::before {
+    display: none;
+  }
+  
+  .bannerimg a img {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: 300px !important;
+  }
+}

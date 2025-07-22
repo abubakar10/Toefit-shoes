@@ -1,0 +1,299 @@
+/* Section 2 - Categories */
+.section2 {
+  padding: 4rem 2rem;
+  background: #fafafa;
+}
+
+.section2 h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: #333;
+}
+
+/* Categories Grid Container */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Individual Category Items */
+.categories .men,
+.categories .women,
+.categories .kids,
+.categories .sale {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 400px;
+}
+
+.categories .men:hover,
+.categories .women:hover,
+.categories .kids:hover,
+.categories .sale:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Category Images */
+.categories .men img,
+.categories .women img,
+.categories .kids img,
+.categories .sale img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.categories .men:hover img,
+.categories .women:hover img,
+.categories .kids:hover img,
+.categories .sale:hover img {
+  transform: scale(1.05);
+}
+
+/* Category Buttons */
+.categories .men .menbtn,
+.categories .women .womenbtn,
+.categories .kids .kidsbtn,
+.categories .sale .salebtn {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.categories .men .menbtn button,
+.categories .women .womenbtn button,
+.categories .kids .kidsbtn button,
+.categories .sale .salebtn button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  min-width: 120px;
+}
+
+.categories .men .menbtn button:hover,
+.categories .women .womenbtn button:hover,
+.categories .kids .kidsbtn button:hover,
+.categories .sale .salebtn button:hover {
+  background: rgba(0, 0, 0, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Overlay */
+.categories .men::before,
+.categories .women::before,
+.categories .kids::before,
+.categories .sale::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.categories .men:hover::before,
+.categories .women:hover::before,
+.categories .kids:hover::before,
+.categories .sale:hover::before {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+/* Link styling */
+.categories a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .section2 {
+    padding: 3rem 1.5rem;
+  }
+  
+  .categories {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .categories .men,
+  .categories .women,
+  .categories .kids,
+  .categories .sale {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section2 {
+    padding: 2.5rem 1rem;
+  }
+  
+  .categories {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .categories .men,
+  .categories .women,
+  .categories .kids,
+  .categories .sale {
+    height: 300px;
+    border-radius: 15px;
+  }
+  
+  .categories .men .menbtn button,
+  .categories .women .womenbtn button,
+  .categories .kids .kidsbtn button,
+  .categories .sale .salebtn button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+  
+  .categories .men .menbtn,
+  .categories .women .womenbtn,
+  .categories .kids .kidsbtn,
+  .categories .sale .salebtn {
+    bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section2 {
+    padding: 2rem 0.5rem;
+  }
+  
+  .categories {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .categories .men,
+  .categories .women,
+  .categories .kids,
+  .categories .sale {
+    height: 250px;
+    border-radius: 12px;
+  }
+  
+  .categories .men .menbtn button,
+  .categories .women .womenbtn button,
+  .categories .kids .kidsbtn button,
+  .categories .sale .salebtn button {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    min-width: 90px;
+    letter-spacing: 0.5px;
+  }
+  
+  .categories .men .menbtn,
+  .categories .women .womenbtn,
+  .categories .kids .kidsbtn,
+  .categories .sale .salebtn {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .categories .men,
+  .categories .women,
+  .categories .kids,
+  .categories .sale {
+    height: 220px;
+  }
+  
+  .categories .men .menbtn button,
+  .categories .women .womenbtn button,
+  .categories .kids .kidsbtn button,
+  .categories .sale .salebtn button {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    min-width: 80px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .categories .men,
+  .categories .women,
+  .categories .kids,
+  .categories .sale,
+  .categories .men img,
+  .categories .women img,
+  .categories .kids img,
+  .categories .sale img,
+  .categories .men .menbtn button,
+  .categories .women .womenbtn button,
+  .categories .kids .kidsbtn button,
+  .categories .sale .salebtn button {
+    transition: none;
+  }
+  
+  .categories .men:hover,
+  .categories .women:hover,
+  .categories .kids:hover,
+  .categories .sale:hover {
+    transform: none;
+  }
+  
+  .categories .men:hover img,
+  .categories .women:hover img,
+  .categories .kids:hover img,
+  .categories .sale:hover img {
+    transform: none;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.categories a:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 3px;
+}
+
+.categories .men .menbtn button:focus,
+.categories .women .womenbtn button:focus,
+.categories .kids .kidsbtn button:focus,
+.categories .sale .salebtn button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}

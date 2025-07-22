@@ -1,0 +1,10 @@
+*{
+  text-transform: none;
+}
+.section3 {
+  padding: 100px 20px;
+}
+.section3 h1 {
+  text-align: center;
+  padding-bottom: 30px;
+}
